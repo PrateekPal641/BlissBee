@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="../static/css/index.css"> -->
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+  <body>
+
+    <main role="main">
+
+      <section class="jumbotron text-center" style="background-image: url(https://media.giphy.com/media/hRBZptDO0ClD72QnJ1/giphy.gif); background-repeat: no-repeat;" ;>
+        <div class="container">
+          <h1 class="jumbotron-heading">Articles curated just for you</h1>
+          <p class="lead text-muted">Step into a world of comfort and care. Explore articles handpicked just for you, crafted with empathy to nurture your well-being. Dive in and discover a path to a brighter, happier you</p>
+          <p>
+            <a href="{% url 'userProfile:chatbot' %}" class="btn btn-primary my-2">Chat now</a>
+            <a href="{% url 'userProfile:dashboard' %}" class="btn btn-secondary my-2">Dasboard</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+
+            {% for goal_key, goal_data in buddy_response.items %}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://img.freepik.com/premium-vector/beautiful-african-american-brunette-girl-lotus-pose-surrounded-by-plants-vector-illustration_217290-1037.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{ goal_data.Text }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#{{goal_key}}">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">5 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://img.freepik.com/premium-vector/simple-flat-vector-illustration_896360-12481.jpg?w=2000" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu2s4dxVnI5W8gDPbKfr1X5D4YqUE0M4u9sTj9kHQCO53L_vPNE71e7NfPo1POQWKChsk&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://img.freepik.com/premium-vector/woman-mindfulness-meditation-background_23-2147884510.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWSDepFXUpcVHD2BO2kfaIRa3UhzuKXWlVmXcXc2DBVIFbSPisyUFfAH5pxUW4s60MnY&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-_CCQqwKki77ZJhmmg8hb48hzMlY2LcqQY9Wj_Oce13bNx6ESRJCw_gwjRwmrx2K3s8&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9Z6hKjD_fmtTToSGS0pKOrSRcVsL_xWoIY-dr8ky2iRMqwP281_GCYKjDMXSSBIPmt4&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9Z6hKjD_fmtTToSGS0pKOrSRcVsL_xWoIY-dr8ky2iRMqwP281_GCYKjDMXSSBIPmt4&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button> -->
+                    <!-- </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9Z6hKjD_fmtTToSGS0pKOrSRcVsL_xWoIY-dr8ky2iRMqwP281_GCYKjDMXSSBIPmt4&usqp=CAU" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div> 
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+    <!-- Modal -->
+    {% for goal_key, goal_data in buddy_response.items %}
+<div class="modal fade outer" id="{{goal_key}}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content goal-content">
+      <div class="modal-header" style="background-color: rgb(251, 251, 148);">
+        <h4 class="modal-title" id="viewModalLabel" style=" margin: auto !important;">{{goal_data.Text}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p style="margin-top: 1%;"><strong>{{goal_data.Objective}}</strong></p>
+        <p>Timeframe: {{goal_data.Timeframe}}</p>
+        <hr style="border-top: 1px solid #ccc; width: 70%; margin: auto; margin-top: 1%; margin-bottom: 1%;">
+      <div class="modal-body">
+        <!-- Replace this with your content -->
+        {% for item in goal_data.Strategies %}
+        <p> {{item}} </p>
+        <br>
+        {% endfor %}
+      </div>
+      <div class="modal-footer" style="text-align: center !important;">
+        <p class="end-line" style="margin: auto !important;">{{goal_data.Motivation}}</p>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

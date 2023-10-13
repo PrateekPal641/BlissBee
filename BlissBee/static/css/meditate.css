@@ -1,0 +1,387 @@
+body {
+    font-family: "Montserrat";
+    text-align: center;
+  }
+  
+  /* .gradient-background {
+    background:  linear-gradient(to right, #aac8ef, rgb(239, 186, 218));
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  } */
+
+  .gradient-background{
+    background-image: url("https://media.istockphoto.com/id/1454287198/vector/golf-sport-illustration-with-flags-cart-sticks-green-field-and-sand-bunker-for-outdoors-fun.jpg?s=1024x1024&w=is&k=20&c=Uq_fv6GS3vgVQbJp65-J4AfDBMAFmXDNlM6NgHg-5R4=")
+  }
+  
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat-bold";
+  }
+  
+  p {
+    color: #8f8f8f;
+  }
+
+
+  /* Headings */
+  
+  .big-heading {
+    font-family: "Montserrat-black";
+    font-size: 3.5rem;
+    line-height: 1.5;
+  }
+  
+  .white-section{
+  background-color: #fff;
+  }
+  
+  /* Navigation bar */
+  .navbar {
+    padding: 0 0 4.5rem;
+  }
+  
+  .navbar-brand {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: "bold";
+    margin-top: 2%;
+    color: black !important;
+  }
+  
+  .navbar-item {
+    padding: 0 18px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 2%;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    color: black !important;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  
+  /* title section */
+  #title {
+    color: rgb(114, 11, 11);
+    text-align: left;
+  }
+  
+  
+  /* Footer Section */
+  .social-icon {
+    margin: 20px 20px;
+  }
+.browserWarning {
+	display: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.cssTransitionsAfterPageLoad {
+	-webkit-transition: 0s !important;
+	-moz-transition: 0s !important;
+	-ms-transition: 0s !important;
+	-o-transition: 0s !important;
+	transition: 0s !important;
+}
+
+.box {
+	box-shadow: 0 0 1px rgba(0, 0, 0, .15);
+	background: #fff;
+	margin: 10px 0px;
+}
+
+.boxHeader {
+	border-bottom: 1px solid rgba(120, 130, 140, .13);
+	padding: 20px;
+	width: 65%;
+}
+
+.box h1 {
+	font-size: 18px;
+	margin: 0px;
+	padding: 0px;
+	font-weight: 500;
+}
+
+.boxContent {
+	padding: 0px 20px 20px;
+	width: 65%;
+}
+
+.boxSidebar {
+	border-left: 1px solid rgba(120, 130, 140, .13);
+	border-bottom: 1px solid rgba(120, 130, 140, .13);
+	border-radius: 0 0 0 3px;
+	width: 35%;
+	float: right;
+	padding: 20px;
+}
+
+
+
+body {
+	padding: 0px;
+	margin: 0px;
+	color: rgba(70, 90, 110, .85);
+	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
+}
+
+p, ol {
+	font-size: 13px;
+}
+
+
+audio {
+	display: none;
+}
+
+h1 {
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.1;
+}
+
+.wrapper {
+	max-width: 960px;
+	margin: auto;
+	z-index: 2;
+}
+
+.main {
+	padding: 20px;
+	background: #569CD5;
+	height: 100vh;
+}
+
+.bg {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	transition: 8s;
+	margin: -20px;
+}
+
+a {
+	color: #5a9ada;
+}
+
+.light {
+	font-weight: 300;
+}
+
+.breatheRing {
+	width: 270px;
+	height: 270px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -135px;
+	margin-left: -135px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	padding-top: 0px;
+	box-sizing: border-box;
+}
+
+.breathe {
+	width: 270px;
+	height: 270px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.2);
+	margin: auto;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	-webkit-font-smoothing: subpixel-antialiased;
+	animation: breathing ease-in-out 16s;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+	animation-fill-mode: forwards;
+}
+
+.label {
+	position: absolute;
+	top: calc(50% - 9px);
+	width: 270px;
+	text-align: center;
+	margin: auto;
+	color: rgba(255, 255, 255, 1);
+	font-family: 'Open Sans';
+	font-size: 28px;
+	letter-spacing: 4px;
+	font-weight: 500;
+	margin-top: -10px;
+}
+
+.inhale {
+	animation: inhale ease-out 16s;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+	animation-fill-mode: forwards;
+}
+
+.exhale {
+	animation: exhale ease-out 16s;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+	animation-fill-mode: forwards;
+}
+
+.hold {
+	animation: hold ease-out 16s;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+	animation-fill-mode: forwards;
+}
+
+.details {
+	position: absolute;
+	max-width: 960px;
+	width: calc(100% - 40px);
+	bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.details a {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.options {
+	float: right;
+}
+
+
+@media (max-width: 650px) {
+	.footerBrief {
+		width: 100%;
+		float: none;
+	}
+	.footerLinks {
+		float: none;
+		text-align: left;
+	}
+	.footerLinks a {
+		margin: 0 10px 0 0;
+	}
+}
+
+@media (max-width: 860px) {
+	.boxSidebar {
+		width: 100%;
+		float: none;
+		border-radius: 0px;
+		border-left: 0px;
+	}
+	.boxHeader {
+		width: 100%;
+		border-bottom: 0px;
+		padding-bottom: 0px;
+	}
+	.boxContent {
+		width: 100%;
+	}
+}
+
+/* Animations */
+
+@keyframes breathing {
+	0% {
+		transform: scaleX(0.333) scaleY(0.333);
+	}
+	25% {
+		transform: scaleX(1.00) scaleY(1.00);
+	}
+	50% {
+		transform: scaleX(1.00) scaleY(1.00);
+	}
+	75% {
+		transform: scaleX(0.333) scaleY(0.333);
+	}
+	100% {
+		transform: scaleX(0.333) scaleY(0.333);
+	}
+}
+
+@keyframes inhale {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 1;
+	}
+	26% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes hold {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+	}
+	26% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	51% {
+		opacity: 0;
+	}
+	74% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes exhale {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	51% {
+		opacity: 1;
+	}
+	74% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}

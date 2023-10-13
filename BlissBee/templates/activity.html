@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/index.css">
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<style>
+    body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    }
+    h1{
+        text-align: center; 
+    }
+    p{
+       text-align: center;
+    }
+    .btn{
+        background: linear-gradient(to left, rgb(230, 201, 217) , rgb(193, 193, 244));
+    }
+</style>
+</head>
+<body>
+
+    <h1>Here's a little fun activity for you </h1>
+    <p>Please press any key to play music and 'Esc' to stop the music</p>
+    <canvas></canvas>
+    <p style="margin-top: 2%;">Please know, you are never alone. Here at BlissBee, I am your steadfast virtual companion, always by your side to offer solace and support. Life's journey can be daunting, especially when anxiety weighs heavy on your heart, but I am here to remind you that together, we can find moments of tranquility and light. Your presence is cherished, and your well-being is my utmost concern. Welcome to BlissBee, where you have a true friend who cares deeply about your journey.</p>
+    <a href="{% url 'userProfile:dashboard'%}"><button type="submit" class="btn">I want to go back</button></a>
+    <div> 
+        <footer class="white-section" id="footer">
+        
+        
+              <p style="margin-top: 2%;">© Copyright BlissBee</p>
+              <i class="social-icon fa-brands fa-facebook"></i>
+              <i class="social-icon fa-brands fa-twitter"></i>
+              <i class="social-icon fa-brands fa-instagram"></i>
+              <i class="social-icon fa-solid fa-envelope"></i>
+          </footer>    
+    </div>
+
+<script>
+
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext('2d');
+
+// for intro motion
+let mouseMoved = false;
+
+let mouse = {
+    x: .5 * window.innerWidth,
+    y: .5 * window.innerHeight,
+    tX: 0,
+    tY: 0
+}
+let params = {
+    pointsNumber: 40,
+    widthFactor: .3,
+    mouseThreshold: .2,
+    spring: .4,
+    friction: .5
+};
+
+const trail = new Array(params.pointsNumber);
+for (let i = 0; i < params.pointsNumber; i++) {
+    trail[i] = {
+        x: mouse.x,
+        y: mouse.y,
+        vx: 0,
+        vy: 0,
+    }
+}
+
+window.addEventListener("click", e => {
+    updateMousePosition(e.pageX, e.pageY);
+});
+window.addEventListener("mousemove", e => {
+    mouseMoved = true;
+    updateMousePosition(e.pageX, e.pageY);
+});
+window.addEventListener("touchmove", e => {
+    mouseMoved = true;
+    updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
+});
+
+function updateMousePosition(eX, eY) {
+    mouse.tX = eX;
+    mouse.tY = eY;
+}
+
+setupCanvas();
+update(0);
+window.addEventListener('resize', () => {
+    setupCanvas();
+});
+
+
+function update(t) {
+
+    // for intro motion
+    if (!mouseMoved) {
+        mouse.tX = (.5 + .3 * Math.cos(.002 * t) * (Math.sin(.005 * t))) * window.innerWidth;
+        mouse.tY = (.5 + .2 * (Math.cos(.005 * t)) + .1 * Math.cos(.01 * t)) * window.innerHeight;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+
+    trail.forEach((p, pIdx) => {
+        if (pIdx === 0) {
+            p.x = mouse.x;
+            p.y = mouse.y;
+            ctx.moveTo(p.x, p.y);
+        } else {
+            p.vx += (trail[pIdx - 1].x - p.x) * params.spring;
+            p.vy += (trail[pIdx - 1].y - p.y) * params.spring;
+            p.vx *= params.friction;
+            p.vy *= params.friction;
+
+            p.x += p.vx;
+            p.y += p.vy;
+        }
+    });
+
+    for (let i = 1; i < trail.length - 1; i++) {
+        const xc = .5 * (trail[i].x + trail[i + 1].x);
+        const yc = .5 * (trail[i].y + trail[i + 1].y);
+        ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+        ctx.lineWidth = params.widthFactor * (params.pointsNumber - i);
+        ctx.stroke();
+    }
+    ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
+    ctx.stroke();
+
+    mouse.x += (mouse.tX - mouse.x) * params.mouseThreshold;
+    mouse.y += (mouse.tY - mouse.y) * params.mouseThreshold;
+
+    window.requestAnimationFrame(update);
+}
+
+function setupCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+ 
+
+
+const audio = new Audio('../sounds/piano-music-no1-167090.mp3');
+
+function playMusic() {
+    audio.play();
+}
+
+function stopMusic() {
+    audio.pause();
+    audio.currentTime = 0;
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        stopMusic();
+    } else {
+        playMusic();
+    }
+});
+</script>
+
+</body>
+</html>

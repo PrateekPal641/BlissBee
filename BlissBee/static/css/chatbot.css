@@ -1,0 +1,100 @@
+body{
+  font-family: "Montserrat" !important;
+  background-image: url("https://cdn.dribbble.com/users/140720/screenshots/4705328/southernhive_dribble_800x600.gif");
+ background-size: contain;
+}
+
+
+
+
+#bodybox {
+    margin-right: 1%;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    box-shadow: 5px 5px 5px rgb(246, 209, 244);
+    border-radius: 15px;
+    padding-left: 3%;
+    background-image: url("https://img.freepik.com/premium-vector/watercolor-floral-leaf-background-banner-frame_681672-1323.jpg?w=2000");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+  
+  #chatbox {
+    height: 50px;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: rgb(235, 227, 227);
+    padding-left: 30px;
+    width: 97%;
+  }
+  .gradient-background {
+    background: linear-gradient(300deg, #4941ef, #9b4279, #b48079);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  .colored-section{
+    background-color: #102C57;
+    /* background-image: linear-gradient(to left,#102C57, #967E76 ); */
+    color:#fff;
+  }
+  
+  .white-section{
+  background-color: #fff;
+  text-align: center;
+  }
+
+ .btn{
+     background: linear-gradient(to left, rgb(230, 201, 217) , rgb(193, 193, 244));
+     margin:auto;
+     margin-right: 2%;
+ }
+ .left-side{
+  width: 45%;
+  margin-top: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 4%;
+  font-size: 15px;
+  color: white;
+ }
+
+ .left-side:hover{
+  color: wheat;
+ }
+
+ 
+
+#chatlogshere{
+  height: 300px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: end; */
+}
+
+/* #chatlogshere {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 300px;
+  overflow-y: auto;
+} */
+
+.social-icon{
+  margin: 20px, 20px !important;
+}

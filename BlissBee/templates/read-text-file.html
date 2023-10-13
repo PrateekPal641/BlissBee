@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display Text File</title>
+</head>
+
+<body>
+
+    <h1>Text File Content:</h1>
+    <p id="file-content" ></p>
+
+
+
+    <script>
+        function loadTextFile() {
+            fetch('plan1.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('file-content').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error reading file:', error);
+                });
+        }
+
+        loadTextFile();
+    </script>
+
+</body>
+
+</html>

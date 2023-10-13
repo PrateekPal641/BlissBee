@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/dashboard.css">
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <section class="colored-section gradient-background" id="title" style="font-family: Montserrat !important;">
+
+    <div class="container-fluid">
+      <!-- Nav Bar (from BootStrap documentation) -->
+      <nav class="navbar navbar-expand-lg navbar-dark" style="padding-bottom: 2%;">
+        <a class="navbar-brand" href="/">BlissBee</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item">
+              <a class="nav-link" href="{% url 'userProfile:custom_logout' %}">Logout</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="{% url 'userProfile:chatbot' %}">Chat now</a>
+            </li>
+            <!-- ml auto creates margin here between the brand and the rest of the nav bar -->
+    
+            <li class="navbar-item">
+              <a class="nav-link" href="/social"> Social</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="{% url 'userProfile:articles' %}"> Articles </a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="{% url 'userProfile:fitness' %}"> FitnessTrack</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="{% url 'userProfile:activity' %}">FunActivity</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+ </section>
+
+<div class="mood-ques">
+    <p style="font-size: 28px;"><strong> What do you feel like today?</strong></p>
+    <hr style="border-top: 1px solid #ccc; width: 70%; margin: auto; margin-top: 1%; margin-bottom: 2%;">
+</div>
+<section style="display: flex;">
+ <div class="outside-page"><div id="outer-ring-wrapper">
+	<div id="outer-ring-inner">
+	</div>
+	<div class="response"><div class="response-inner-wrapper"><div class="response-inner"><p>“I feel numb”</p><p>Feelings of being dazed or detached are common responses to a suicide. At first, shock can protect you from feeling overwhelmed.</p></div><div id="response-shock-border"></div></div></div>
+ </div>
+ </div>
+
+ <div class="mood-ring-desc">
+      <p>Emotions can be complex, but you're never alone. Whether it's grief, anger, shock, sadness, or depression, we're here to help.</p>
+
+        <p>If any of these feelings trouble you, our virtual mental health bot is here, free from judgment, to listen and support.</p>
+        
+        <p>You matter to us. Feel free to reach out anytime.</p>   
+        <p><img src="{% static 'images/mood.png' %}" style="height: 160px;"><a href="{% url 'userProfile:chatbot' %}">Chat now </a></p>
+ </div>
+
+</section> 
+
+
+
+<div style="margin-top: 5%;"><p style="font-size: 28px;"><strong>Embrace Serenity: Explore the Art of Mindful Living </strong></p>
+  <hr style="border-top: 1px solid #ccc; width: 70%; margin: auto; margin-top: 1%; margin-bottom: 2%;">
+
+<section class="hero-section">
+    <div class="card-grid">
+      <a class="card" href="{% url 'userProfile:meditate' %}">
+        <div class="card__background" style="background-image: url(https://unblast.com/wp-content/uploads/2021/10/Meditation-Vector-Illustration.jpg)"></div>
+        <div class="card__content">
+          <h3 class="card__heading">Mindful Breathing</h3>
+          <p class="card__category">Discover the power of mindful breathing to alleviate stress and improve your mental well-being. Learn simple techniques to focus your breath, reduce anxiety, and enhance your overall sense of tranquility.</p>
+        </div>
+      </a>
+      <a class="card" href="{% url 'userProfile:journal' %}">
+        <div class="card__background" style="background-image: url(https://cdn.baptistjax.com//ar_2:1,w_1200,h_630,c_fill,g_auto,f_auto,q_auto/v1613073552/Juice/YogaDuringPandemic.jpg)"></div>
+        <div class="card__content">
+          <h3 class="card__heading">Gratitude Journaling</h3>
+          <p class="card__category">Dive into the transformative practice of gratitude journaling. Uncover the numerous mental health benefits of regularly acknowledging and appreciating the positive aspects of your life. </p>
+        </div>
+      </a>
+      <a class="card" href="{% url 'userProfile:articles' %}">
+        <div class="card__background" style="background-image: url(https://thumbs.dreamstime.com/b/mindfulness-meditation-yoga-background-pastel-vintage-colors-women-sitting-crossed-legs-meditating-vector-148205192.jpg)"></div>
+        <div class="card__content">
+          <h3 class="card__heading">Personalised Articles</h3>
+          <p class="card__category">Learn how to develop emotional resilience to navigate life's challenges with grace and fortitude. Discover strategies to bounce back from setbacks, manage stress, and cultivate a mindset that promotes mental well-being</p>
+        </div>
+      </li>
+      <a class="card" href="{% url 'userProfile:scenario_view' %}">
+        <div class="card__background" style="background-image: url(https://static.vecteezy.com/system/resources/previews/018/735/406/non_2x/meditation-in-forest-waterfall-free-vector.jpg)"></div>
+        <div class="card__content">
+          <h3 class="card__heading">Know Yourself</h3>
+          <p class="card__category"> Dive into captivating scenarios and make choices that reveal your innermost thoughts and feelings. Our chatbot provides a detailed personality summary, helping you uncover your unique identity and understand yourself on a profound level.</p>
+        </div>
+      </a>
+    <div>
+  </section>
+
+ 
+
+<section class="music-options">
+  <p style="font-size: 28px; margin-bottom: 2%;"><strong>Enhance Your Wellbeing with Calming Playlists</strong></p>
+  <div class="spotify">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/04boE4u1AupbrGlI62WvoO?utm_source=generator" width="25%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  <div  class= "spotify">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/20Ni1eLWzkaqx8d55X8Par?utm_source=generator" width="25%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  <div  class= "spotify">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1pEJlVzcCKCLV8JW0TYCB2?utm_source=generator" width="25%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</section>
+
+
+      <!-- Footer -->
+<div>
+ <footer class="white-section" id="footer">
+    <div class="container-fluid">
+
+
+      <p>© Copyright BlissBee</p>
+      <i class="social-icon fa-brands fa-facebook"></i>
+      <i class="social-icon fa-brands fa-twitter"></i>
+      <i class="social-icon fa-brands fa-instagram"></i>
+      <i class="social-icon fa-solid fa-envelope"></i>
+    </div>
+ </footer>  
+</div>  
+
+<script src="{% static 'js/dashboard.js' %}"></script>
+<script>
+  new Splide( '#image-carousel' ).mount();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+/* $color-background: #fff;
+$color-text: #363636;
+$color-underline: #d50000; */
+
+.quote {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  margin-top: 5%;
+  margin-bottom: 6%;
+  text-align: center !important;
+}
+
+.container {
+  text-align: center !important;
+  max-width: 80%;
+}
+
+.typity {
+  background-position: 0% 100%;
+  border-bottom: 3px solid  #d50000;
+  box-sizing: border-box;
+  color: #363636;
+  font-size: 2rem;
+  padding-right: 2px;
+  position: relative;
+  transition: background-position 1s;
+
+  &::after {
+    animation: blink-cursor 0.75s step-end infinite;
+    background-color: transparent;
+    content: "";
+    display: block;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+  }
+
+  &.highlight {
+    background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 50%
+    );
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 200% 2rem;
+
+    &::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes blink-cursor {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  .typity {
+    border-bottom: 2px solid red;
+  }
+}
+
+
+
+.add-event{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+/* List title */
+
+#listWrapper {
+  background: white;
+  border-radius: 9px;
+  border: 1px solid #e7ecfb;
+  box-shadow: 0 0 30px rgba(211, 220, 248, .3);
+  padding: 30px;
+}
+
+/* List title */
+#title {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#titleInput {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #666f99;
+  padding: 9px 18px;
+}
+
+#titleInput::placeholder {
+  color: rgba(63, 69, 95, .3);
+}
+
+/* List title pencil */
+.fa-pencil-alt {
+  font-size: 18px;
+  border-radius: 50%;
+  position: absolute;
+  right: 24px;
+  pointer-events: none;
+  color: #a8baf0;
+}
+
+/* Separator */
+#separator {
+  margin: 12px 0;
+  box-shadow: 0 12px 12px rgba(211, 220, 248, .3);
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  max-width: 100%;
+  height: 10px;
+}
+
+/* To do items wrapper */
+#itemsWrapper {
+  padding: 8px 8px;
+  margin: 12px 0;
+}
+
+/* To do item */
+.item {
+  width: 100%;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 12px;
+  border: 0;
+  padding: 9px 12px;
+  color: #3f455f;
+  position: relative;
+}
+
+.itemInner {
+  padding: 9px 0;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.itemInner p {
+  margin: 0;
+  pointer-events: none;
+}
+
+/* Item buttons */
+.fa-trash-alt {
+  pointer-events: none;
+  color: #a8baf0;
+  font-size: 18px;
+}
+
+.removeItemBtn {
+  position: absolute;
+  right: 4px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.fa-hand-point-right {
+  color: #a8baf0;
+  margin-right: 9px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Add a new item section */
+#addNewItemWrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#addNewItemInput {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 9px;
+  color: #666f99;
+  padding: 12px 60px 12px 18px;
+  background: #f3f5fc;
+}
+
+#addNewItemBtn {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  padding: 0 18px;
+  background: transparent;
+  border: 0;
+  color: #666f99;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Footer Section */
+.social-icon {
+  margin: 20px 20px;
+}
+
+p{
+  text-align: center !important;
+}
+.btn{
+   background: linear-gradient(to left, rgb(230, 201, 217) , rgb(193, 193, 244)) !important;
+   margin-left: 45%;
+   height: 50px;
+   border-radius: 5%;
+}
+
+#footer{
+  text-align: center !important;
+  font-family: Montserrat !important;
+}

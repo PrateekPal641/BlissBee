@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/index.css">
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <section class="colored-section gradient-background" id="title">
+
+    <div class="container-fluid">
+      <!-- Nav Bar (from BootStrap documentation) -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">BlissBee</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item">
+              <button class="btn btn-outline-warning"><a class="nav-link" href="{% url 'userProfile:login' %}">Get started</a></button>
+            </li>
+           <li class="navbar-item">
+              <a class="nav-link" href="about.html"> About us</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+
+
+
+      <!-- Title -->
+      <div class="row">
+          <h2 class="big-heading">Your Compassionate Companion for Mental Wellness</h2>
+          <button type="button" class="btn btn-dark btn-lg download-button"><i class="fa-brands fa-apple"></i> Download</button>
+          <button type="button" class="btn btn-outline-light btn-lg download-button"><i class="fa-brands fa-google-play"></i>Download</button>
+      </div>
+
+    </div>
+    </div>
+</section>
+
+<section class="white-section" id="features">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="feature-box col-lg-4">
+        <i class="icon fa-solid fa-heart fa-4x"></i>
+        <h3 class="feature-title">Personalised Solutions</h3>
+        <p>BlissBee offers innovative and personalized solutions for your mental well-being.</p>
+      </div>
+      <div class="feature-box col-lg-4">
+        <i class="icon fa-solid fa-user-check fa-4x"></i>
+        <h3 class="feature-title">Personalized Support</h3>
+        <p>We provide personalized support and guidance to help you on your well-being journey.</p>
+      </div>
+      <div class="feature-box col-lg-4">
+        <i class="icon fa-solid fa-comments fa-4x"></i>
+        <h3 class="feature-title">Community Forums</h3>
+        <p>Connect with a community of individuals on similar well-being journeys.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+    <strong><h3 class="feature-title">What do we offer?</h3></strong>
+    <hr style="border: 1px dotted; width: 33%;">
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://www.nami.org/NAMI/media/NAMI-Media/BlogImageArchive/2021/Processes-Mental-Health_Blog.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Comforting Conversations and Diagnosis </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_23295_16680815010862881.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Personalized Content Creation </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://blogimage.vantagefit.io/vfitimages/2022/02/Mental-wellness-month.png" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Therapeutic Activities </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://elements-cover-images-0.imgix.net/b7219f5e-f65f-468a-9523-8f5720a740d4?auto=compress%2Cformat&fit=max&w=900&s=fb6ff6299eb9d9708b34bdde833362dc" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Integration with Wearable Tech </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://img.freepik.com/premium-vector/beautiful-african-american-brunette-girl-lotus-pose-surrounded-by-plants-vector-illustration_217290-1037.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Sense of community and suppor</p>
+              </div>
+            </div>
+          </div>
+</section>
+
+<!-- Testimonials -->
+<p style="font-size: 28px;"><strong>Stories from across the world</strong></p>
+
+ <!-- <p><a href="add_material.html"><i class="fa-solid fa-book-open-reader"></i> Add Yours Now</a></p> -->
+
+ <section id="testimonials">
+  <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-ride:"false">
+    <div class="carousel-inner">
+      <div class="carousel-item active container-fluid">
+        <h2 class="testimonial-text">"Life was overwhelming, and I felt lost in a sea of stress and anxiety. It was affecting my work, my relationships, everything. Then, I discovered BlissBee. Through its guided meditation sessions and mental health resources, I found the tools I needed to regain control of my life. Now, I wake up every day feeling empowered and at peace. BlissBee truly transformed my mental well-being."</strong></h2>
+        <img class="testimonial-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/2048px-User_font_awesome.svg.png" alt="profile">
+        <p><a href="articles.html">Learn More</a></p>
+        <em>Sarah, New York</em>
+      </div>
+
+
+      <div class="carousel-item  container-fluid">
+        <h2 class="testimonial-text">For years, I battled with depression and felt like I was living in darkness. One day, I stumbled upon BlissBee, and it changed my life. The daily mood tracking and self-help articles provided me with the support I needed. With time and commitment, I started to see the light again. Today, I am grateful to BlissBee for helping me find happiness and purpose.</strong></h2>
+        <img class="testimonial-image" src="data:image/png;base64,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" alt="lady-profile">
+        <p><a href="articles.html">Learn More</a></p>
+        <em>Ella, Istanbul</em>
+      </div>
+
+      <div class="carousel-item  container-fluid">
+        <h2 class="testimonial-text">"Anxiety used to rule my life, making simple tasks seem impossible. I was on the brink of giving up when I found BlissBee. The guided breathing exercises and community forums allowed me to connect with others facing similar challenges. Slowly but surely, my anxiety began to fade, and I started living life with confidence. BlissBee gave me the hope I desperately needed"</strong></h2>
+        <img class="testimonial-image" src="data:image/png;base64,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" alt="lady-profile">
+        <p><a href="articles.html">Learn More</a></p>
+        <em>Ravi, Delhi</em>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+</section>
+
+
+
+
+      <!-- Footer -->
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid">
+
+
+      <p>© Copyright BlissBee</p>
+      <i class="social-icon fa-brands fa-facebook"></i>
+      <i class="social-icon fa-brands fa-twitter"></i>
+      <i class="social-icon fa-brands fa-instagram"></i>
+      <i class="social-icon fa-solid fa-envelope"></i>
+    </div>
+  </footer>    
+
+</body>
+
+</html>

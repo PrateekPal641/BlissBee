@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/watch.css">
+     <!-- Bootstrap core CSS -->
+     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 navbar-top">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BlissBee</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Smart watch <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Chat now
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Social
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  Reports
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="meditate.html">
+                  <span data-feather="layers"></span>
+                  Meditate
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+
+        <div class="wrapper">
+            <h1>Your health stats are here</h1>
+            <div class="pie-charts">
+                <div class="pieID--micro-skills pie-chart--wrapper">
+                    <h2>Steps Count</h2>
+                    <div class="pie-chart">
+                        <div class="pie-chart__pie"></div>
+                        <ul class="pie-chart__legend">
+                            <li>
+                                <em>Daily steps</em>
+                                <span>60</span>
+                            </li>
+                            <li>
+                                <em>Your goal</em>
+                                <span>10000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pieID--categories pie-chart--wrapper">
+                    <h2>Calories Count</h2>
+                    <div class="pie-chart">
+                        <div class="pie-chart__pie"></div>
+                        <ul class="pie-chart__legend">
+                            <li>
+                                <em>Intake</em>
+                                <span>768</span>
+                            </li>
+                            <li>
+                                <em>Burnt</em>
+                                <span>232</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pieID--operations pie-chart--wrapper">
+                    <h2>Kuch bhi</h2>
+                    <div class="pie-chart">
+                        <div class="pie-chart__pie"></div>
+                        <ul class="pie-chart__legend">
+                            <li>
+                                <em>Sleep</em>
+                                <span>486</span>
+                            </li>
+                            <li>
+                                <em>Mindfullness</em>
+                                <span>156</span>
+                            </li>
+                            <li>
+                                <em>Walk</em>
+                                <span>215</span>
+                            </li>
+                            <li>
+                                <em>Exercise</em>
+                                <span>143</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script> -->
+<script>
+  
+function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+
+function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+ sliceID + "'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+
+  $(id + " ." + sliceID).css({
+    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+  });
+
+  $(id + " ." + sliceID + " span").css({
+    "transform"       : "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+
+function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var
+    maxSize = 179,
+    sliceID = "s" + dataCount + "-" + sliceCount;
+
+  if( sliceSize <= maxSize ) {
+    addSlice(id, sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(id, maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(id, sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+
+function createPie(id) {
+  var
+    listData      = [],
+    listTotal     = 0,
+    offset        = 0,
+    i             = 0,
+    pieElement    = id + " .pie-chart__pie"
+    dataElement   = id + " .pie-chart__legend"
+
+    color         = [
+      "cornflowerblue",
+      "olivedrab",
+      "orange",
+      "tomato",
+      "crimson",
+      "purple",
+      "turquoise",
+      "forestgreen",
+      "navy"
+    ];
+
+  color = shuffle( color );
+
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+
+  for(i = 0; i < listData.length; i++) {
+    listTotal += listData[i];
+  }
+
+  for(i=0; i < listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
+    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+    return a;
+}
+
+function createPieCharts() {
+  createPie('.pieID--micro-skills' );
+  createPie('.pieID--categories' );
+  createPie('.pieID--operations' );
+}
+
+createPieCharts();
+
+   
+    </script>
+  </body>
+</html>

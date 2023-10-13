@@ -1,0 +1,218 @@
+body{
+  background-image: url("https://cdn.dribbble.com/users/149180/screenshots/3137225/particles.gif");
+}
+.navbar-top{
+    background-image: url("https://cdn.dribbble.com/users/2156796/screenshots/19992280/media/7d2ee3a4d15d1f335419059066067694.gif");
+}
+
+.start-sec{
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.left-div{
+  height: 25px;
+  width: 630px;
+  margin-left: 15%;
+  text-align: center;
+  padding-top: 3%;
+}
+
+.right-div{
+  height: 250px;
+  width: 630px;
+  margin-left: 15%;
+  text-align: center;
+  padding-top: 3%;
+}
+
+.central-sec{
+ align-items: center;
+ margin-top: 4%;
+ padding-left: 3%;
+ padding-right: 3%;
+
+}
+.central-div{
+  height: 400px;
+  width: 1200px;
+  margin-left:23% ;
+  display: flex;
+  justify-content: center;
+}
+
+.data-area{
+  width: 1200px;
+  margin-left:15% ;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.progress-pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative;
+}
+
+.progress-pie-chart.gt-50 {
+  background-color: #81CE97;
+}
+
+
+/* DEMO STYLES */
+
+
+
+/* PROGRESS CIRCLE COMPONENT */
+.circliful {
+  margin:auto;
+  position: relative; 
+}
+
+.circle-text, .circle-info, .circle-text-half, .circle-info-half {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+}
+
+.circle-info, .circle-info-half {
+color: #999;
+}
+
+.circliful .fa {
+margin: -10px 3px 0 3px;
+position: relative;
+bottom: 4px;
+}
+
+
+/* //data area */
+
+/* Typography imported from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+
+/* Generic styles */
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-align: center;
+  display: inline-block;
+  transition: all .3s;
+}
+
+a:hover {
+  opacity: .6;
+}
+
+
+.hero {
+  background: url('https://media.tenor.com/9s6KUVRceC0AAAAC/heker.gif') center;
+  margin: auto;
+  padding: 5%;
+  /* grid styles */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+}
+
+.hero:hover{
+  opacity: 0.6;
+}
+
+.hero > * {
+  color: white;
+}
+
+.hero > h1 {
+  font-size: 4rem;
+  padding-bottom: 1rem;
+}
+
+.hero > article > p {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.hero > article > a {
+  padding: 1rem;
+  margin-top: .75rem;
+}
+
+/* breweries styles */
+.breweries {
+  padding: 2rem;
+}
+
+.breweries > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+
+.breweries > ul > li {
+  border: 1px solid #E2E2E2;
+  border-radius: .5rem;
+}
+
+.breweries > ul > li > figure {
+  max-height: 220px;
+  overflow: hidden;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  position: relative;
+}
+
+.breweries > ul > li > figure > img {
+  width: 100%;
+}
+
+.breweries > ul > li > figure > figcaption {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+  width: 100%;
+}
+
+.breweries > ul > li > figure > figcaption > h3 {
+  color: white;
+  padding: .75rem;
+  font-size: 1.25rem;
+}
+
+.breweries > ul > li > p {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem .75rem;
+  color: #666666;
+}
+
+.breweries > ul > li > a {
+  padding: .5rem 1rem;
+  margin: .5rem;
+}
+
+.upar{
+  margin-top: 0 !important;
+  padding-top: 2%;
+  background-image: url("https://media.tenor.com/9s6KUVRceC0AAAAC/heker.gif");
+  background-size: auto;
+}
+
+
+.smart-watch-imgs:hover{
+  opacity: 0.5;
+  transform: scale(1.2);
+}
+
+
+
+
+

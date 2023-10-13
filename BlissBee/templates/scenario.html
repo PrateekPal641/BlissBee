@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BlisBee</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+  
+    <!-- CSS Stylesheets -->
+    <!-- integarting bootstrap into css by cdn link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/scenario.css">
+    <link rel="stylesheet" href="{% static 'css/scenario.css' %}">
+  
+  
+      <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+  
+    <!-- BootStrap Scripts -->
+    <!-- some features of bootsrap require javascript to work -->
+    <!-- check bootstrap's introduction page to find out -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  </head>
+<body>
+  <section class="jumbotron text-center" style="background-image: url(https://media.giphy.com/media/hRBZptDO0ClD72QnJ1/giphy.gif); background-repeat: no-repeat; height: 120px; padding-top: 2%;" ;>
+     <p><strong>Each scenario is carefully tailored to your unique needs, offering you a chance to reflect and respond in a way that feels comfortable for you.</strong></p>
+     <p><strong>--------------- Your responses are valuable, and they help us provide you with the feedback and support you deserve ---------------</strong></p>
+  </section>
+    
+    <!-- scenario bot -->
+    <div>
+      <h3 id="analysis-text" style="text-align: center;"> </h3>
+    </div>
+    
+  <section id="scenario-bot">
+
+     <div class="left-side">
+      <div id="output"></div>
+      <div id="container">
+        <textarea id="input" style="padding: 2%;"></textarea>
+      </div>
+      <button id="submit-button" class="btn">Submit</button>
+     </div>
+     <div id="feedback"></div>
+     
+
+ </section>
+
+
+
+ <section class="gen-images">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+
+          
+          <div class="carousel-item active">
+            <img class="d-block gen-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6kEXConYaACv5jsP8a8960_nz9NbUUwVPSA&usqp=CAU" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="img-text">SCENARIOS AND RATINGSLIST OF ALL PAST SCENARIOS INTERACTIONS</p>
+                <p>⭐⭐⭐⭐⭐</p>
+            </div>
+          </div>
+
+          {% for item in past_scenario_list %}
+          <div class="carousel-item">
+             <img class="d-block gen-img" src="{{item.image.url}}" alt="Second slide">
+             <div class="carousel-caption d-none d-md-block">
+                <p class="img-text">{{item.feedback}}</p>
+                <p>Severity: {{item.rating}} </p>
+             </div>
+          </div>
+          {% endfor %}
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    
+ </section>  
+ <hr style="border-top: 10px dotted #eee; width: 25%; margin: auto; margin-top: 4%; margin-bottom: 1%;"> 
+
+ 
+  
+ <a href="{% url 'userProfile:dashboard'%}"><button type="submit" class="btn" style="margin-left: 45%;">I want to go back</button></a>
+              
+    <div> 
+        <footer class="white-section" id="footer" >
+        
+        <p style="margin-top: 2%;">© Copyright BlissBee</p>
+              <i class="social-icon fa-brands fa-facebook"></i>
+              <i class="social-icon fa-brands fa-twitter"></i>
+              <i class="social-icon fa-brands fa-instagram"></i>
+              <i class="social-icon fa-solid fa-envelope"></i>
+          </footer>    
+    </div> 
+    
+    <!-- jquery for enter key press -->      
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script>
+        var questionNum = 0;	
+        console.log('Hello')												// keep count of question, used for IF condition.
+ var question = '<p id="scene">{{scenario}}</p>';				  // first question
+
+ var output = document.getElementById('output');				// store id="output" in output variable
+ output.innerHTML = question;													// ouput first question
+
+ async function bot() { 
+    var decodedData = document.createElement('textarea');
+    decodedData.innerHTML = "{{scenario}}";
+    var text = decodedData.value;
+
+    var decodedData1 = document.createElement('textarea1');
+    decodedData1.innerHTML = "{{scenario_heading}}";
+    var textheading = decodedData1.value;
+    
+    var user_response=document.getElementById('input').value
+    var feedbackValue="demo-feedback-testing-design"
+    var rating = 5
+    const baseUrl = window.location.origin
+    const endpoint = 'userprofile/scenario-feedback/'
+    const url = baseUrl + '/' + endpoint
+    
+    console.log("here------")
+    console.log(user_response)
+    let request=await fetch(url,{
+              method:"POST",
+              headers:{
+                  "content-type":"application/json"
+              },
+              body:JSON.stringify({"scenario": text,"scenario_heading": "{{scenario_heading}}", "response": user_response})
+            })
+            let response=await request.json()
+            feedbackValue=response.feedback
+            rating = response.rating
+            console.log(feedback)
+
+    var input = document.getElementById("input").value;
+    console.log(input);
+
+    if (questionNum == 0) {
+    output.innerHTML = '<p>Your feedback has been generated</p>';// provide feedback
+    feedback.innerHTML= '<p>' + feedbackValue + '</p><hr><p> Severity: ' + rating + '</p>' 
+    document.getElementById("input").value = "Thank you for your response";   		// clear text box									// output next question after 2sec delay
+    }
+ }
+   
+
+  const inputTextarea = document.getElementById("input");
+  const submitButton = document.getElementById("submit-button");
+  
+
+  submitButton.addEventListener("click", function() {        
+    const analysis = document.getElementById("analysis-text");
+    analysis.textContent = " ✅ Please wait while your response is being analyzed ";
+    bot();	
+    inputTextarea.value = "";
+  });
+
+
+
+ //push enter key (using jquery), to run bot function.
+//  $(document).keypress(function(e) {
+//   if (e.which == 13) {
+//     bot();																						// run bot function when ente	// increase questionNum count by 1
+//   }
+//  });
+
+//  $('.carousel').carousel({
+//  //   interval: 2000
+//  })
+
+
+  
+ function generateStarRating(rating) {
+    const maxRating = 10; // Maximum rating value
+    const maxStars = 5; // Maximum number of stars to display
+    const filledStars = (rating / maxRating) * maxStars; // Calculate filled stars
+
+   
+    let starHTML = '';
+    for (let i = 0; i < maxStars; i++) {
+        if (i < filledStars) {
+            starHTML += '★'; 
+        } else {
+            starHTML += '☆'; 
+        }
+    }
+
+    return starHTML;
+}
+
+
+    </script>
+   </section>
+
+</body>
+</html>
+

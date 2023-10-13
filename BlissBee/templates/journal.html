@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/journal.css">
+    <link rel="stylesheet" href="{% static 'css/journal.css' %}">
+    <title>Document</title>
+    <!-- Google Fonts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/56942480bb.js" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="container quote">
+        <span class="typity"></span>
+    </div>
+
+    <section class="add-event">
+  
+      <!-- List wrapper -->
+     <div id="listWrapper" style="width: 80%;" >
+    
+      <!-- List title -->
+      <div id="title">
+        <input id="titleInput" type="text" placeholder="Today I felt like" maxlength="200">
+        <i class="fa fa-pencil-alt"></i>
+      </div>
+    
+      <div id="separator"></div>
+    
+      <!-- To do items -->
+      <div id="itemsWrapper">
+        <div class="item">
+          <!-- New items are created here -->
+        </div>
+      </div>
+    
+      <!-- Add a new item -->
+      <div id="addNewItemWrapper">
+        <input type="text" id="addNewItemInput" maxlength="1000">
+        <button id="addNewItemBtn"><i class="fas fa-plus"></i></button>
+      </div>
+      
+    </div>
+  </section>
+
+  <p style="margin-top: 2%;">Please know, you are never alone. Here at BlissBee, I am your steadfast virtual companion, always by your side to offer solace and support. Life's journey can be daunting, especially when anxiety weighs heavy on your heart, but I am here to remind you that together, we can find moments of tranquility and light. Your presence is cherished, and your well-being is my utmost concern. Welcome to BlissBee, where you have a true friend who cares deeply about your journey.</p>
+  <a href="{% url 'userProfile:dashboard' %}"><button type="submit" class="btn">I want to go back</button></a>
+
+    <!-- Footer -->
+<div style="margin-top: 4%;">
+<footer class="white-section" id="footer">
+  <div class="container-fluid">
+
+      
+    <p>© Copyright BlissBee</p>
+  </div>
+</footer>
+</div>   
+
+<script>
+        let typed = "";
+       const element = document.querySelector(".typity");
+
+ function startType(pun, index) {
+  if (index < pun.length) {
+    typed += pun.charAt(index);
+    element.innerHTML = typed;
+    index++;
+    setTimeout(function() {
+      startType(pun, index);
+    }, 50);
+  } else {
+    setTimeout(function() {
+      element.classList.add("highlight");
+    }, 4000);
+
+    setTimeout(function() {
+      element.classList.remove("highlight");
+      typed = "";
+      element.innerHTML = typed;
+      startType(getRandomPun(), 0);
+    }, 5000);
+  }
+}
+
+function getRandomPun() {
+
+  const puns = JSON.parse("{{motivational_quotes|escapejs}}");  
+  const index = Math.floor(Math.random() * puns.length);
+
+  return puns[index];
+ }
+
+ startType(getRandomPun(), 0);
+
+
+//add event
+
+/* Submit on Enter */
+$("#addNewItemInput").on("keydown", (e) => {
+  if (e.keyCode === 13) {
+    $("#addNewItemBtn").click()
+    $("#addNewItemInput").val("")
+  }
+})
+
+$("#titleInput").on("keydown", (e) => {
+  if (e.keyCode == 13) {
+    $("#titleInput").blur();
+  }
+})
+</script>
+<script src="../static/js/journal.js"></script>
+<script src="{% static 'js/journal.js' %}"></script>
+</body>
+</html>

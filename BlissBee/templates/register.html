@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/styles.css">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+    <style>
+        
+        body{
+        background:  linear-gradient(to right, #b7d0f0, white);
+        background-size: 180% 180%;
+        animation: gradient-animation 18s ease infinite;
+      }
+      @keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+    </style>
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                class="img-fluid" alt="Login image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form method="post">
+                {% csrf_token %}
+                <!-- Email input -->
+                <h3 style="text-align: center; margin-bottom: 20px;">Welcome to BlissBee 🐝</h3>
+{% if messages %}
+                  <ul class="messages">
+                      {% for message in messages %}
+                          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+                {% endif %}
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example13">Create your Username</label>
+                  <input type="text" id="form1Example13"  name="username" class="form-control form-control-lg" required>
+                </div>
+      
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example23">Create Password</label>
+                  <input type="password" id="password"  name="password" class="form-control form-control-lg" required>
+                  <span class="show-pass" onclick="toggle()">
+                    <i class="far fa-eye" onclick="myFunction(this)"></i>
+                </span>
+                <div id="popover-password">
+                    <p><span id="result"></span></p>
+                    <div class="progress">
+                        <div id="password-strength" 
+                            class="progress-bar" 
+                            role="progressbar" 
+                            aria-valuenow="40" 
+                            aria-valuemin="0" 
+                            aria-valuemax="100" 
+                            style="width:0%">
+                        </div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="">
+                            <span class="low-upper-case">
+                                <i class="fas fa-circle" aria-hidden="true"></i>
+                                &nbsp;Lowercase &amp; Uppercase
+                            </span>
+                        </li>
+                        <li class="">
+                            <span class="one-number">
+                                <i class="fas fa-circle" aria-hidden="true"></i>
+                                &nbsp;Number (0-9)
+                            </span> 
+                        </li>
+                                            <li class="">
+                            <span class="one-special-char">
+                                <i class="fas fa-circle" aria-hidden="true"></i>
+                                &nbsp;Special Character (!@#$%^&*)
+                            </span>
+                        </li>
+                        <li class="">
+                            <span class="eight-character">
+                                <i class="fas fa-circle" aria-hidden="true"></i>
+                                &nbsp;Atleast 8 Character
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example23">Confirm Password</label>
+                    <input type="password" id="confirm_password" class="form-control form-control-lg" required> 
+                  </div> -->
+                 
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example23">Date of birth</label>
+                    <input type="date" id="form1Example23"  name="dob" class="form-control form-control-lg" required>
+                </div>
+
+
+            <div style="display: flex;">
+                <div class="form-outline mb-4" style="width: 42%; margin-right: 3%;">
+                    <label class="form-label" for="form1Example23">Gender</label>
+                    <select name="gender">
+                        <option value="">Please select one…</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example23">Relationship status</label>
+                    <select name="status">
+                        <option value="">Please select one…</option>
+                        <option value="Single">Single</option>
+                        <option value="In a relationship">In a relationship</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+                    </select>
+                </div>
+
+            </div>   
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Create account</button>
+                <br>
+                <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="{% url 'userProfile:login' %}"
+                  role="button"> Already have an account</a>
+              </form>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="login-content">
+      <div>
+        
+    </div>
+    </section>
+    <script>
+//         var password = document.getElementById("password")
+//   , confirm_password = document.getElementById("confirm_password");
+
+// function validatePassword(){
+//   if(password.value != confirm_password.value) {
+//     confirm_password.setCustomValidity("Passwords Don't Match");
+//   } else {
+//     confirm_password.setCustomValidity('');
+//   }
+// }
+
+// password.onchange = validatePassword;
+// confirm_password.onkeyup = validatePassword;
+
+let state = false;
+let password = document.getElementById("password");
+let passwordStrength = document.getElementById("password-strength");
+let lowUpperCase = document.querySelector(".low-upper-case i");
+let number = document.querySelector(".one-number i");
+let specialChar = document.querySelector(".one-special-char i");
+let eightChar = document.querySelector(".eight-character i");
+
+password.addEventListener("keyup", function(){
+    let pass = document.getElementById("password").value;
+    checkStrength(pass);
+});
+
+function toggle(){
+    if(state){
+        document.getElementById("password").setAttribute("type","password");
+        state = false;
+    }else{
+        document.getElementById("password").setAttribute("type","text")
+        state = true;
+    }
+}
+
+function myFunction(show){
+    show.classList.toggle("fa-eye-slash");
+}
+
+function checkStrength(password) {
+    let strength = 0;
+
+    //If password contains both lower and uppercase characters
+    if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+        strength += 1;
+        lowUpperCase.classList.remove('fa-circle');
+        lowUpperCase.classList.add('fa-check');
+    } else {
+        lowUpperCase.classList.add('fa-circle');
+        lowUpperCase.classList.remove('fa-check');
+    }
+    //If it has numbers and characters
+    if (password.match(/([0-9])/)) {
+        strength += 1;
+        number.classList.remove('fa-circle');
+        number.classList.add('fa-check');
+    } else {
+        number.classList.add('fa-circle');
+        number.classList.remove('fa-check');
+    }
+    //If it has one special character
+    if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+        strength += 1;
+        specialChar.classList.remove('fa-circle');
+        specialChar.classList.add('fa-check');
+    } else {
+        specialChar.classList.add('fa-circle');
+        specialChar.classList.remove('fa-check');
+    }
+    //If password is greater than 7
+    if (password.length > 7) {
+        strength += 1;
+        eightChar.classList.remove('fa-circle');
+        eightChar.classList.add('fa-check');
+    } else {
+        eightChar.classList.add('fa-circle');
+        eightChar.classList.remove('fa-check');   
+    }
+
+    // If value is less than 2
+    if (strength < 2) {
+        passwordStrength.classList.remove('progress-bar-warning');
+        passwordStrength.classList.remove('progress-bar-success');
+        passwordStrength.classList.add('progress-bar-danger');
+        passwordStrength.style = 'width: 10%';
+    } else if (strength == 3) {
+        passwordStrength.classList.remove('progress-bar-success');
+        passwordStrength.classList.remove('progress-bar-danger');
+        passwordStrength.classList.add('progress-bar-warning');
+        passwordStrength.style = 'width: 60%';
+    } else if (strength == 4) {
+        passwordStrength.classList.remove('progress-bar-warning');
+        passwordStrength.classList.remove('progress-bar-danger');
+        passwordStrength.classList.add('progress-bar-success');
+        passwordStrength.style = 'width: 100%';
+    }
+}
+    </script>
+</body>
+</html>

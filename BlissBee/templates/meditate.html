@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BlisBee</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/meditate.css">
+  <link rel="stylesheet" href="{% static 'css/meditate.css' %}">
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+
+  p{
+    text-align: center;
+ }
+ .btn{
+     background: linear-gradient(to left, rgb(230, 201, 217) , rgb(193, 193, 244));
+ }
+</style>
+</head>
+
+<body>
+
+
+<section>
+  <div class="main">
+	<div class="bg cssTransitionsAfterPageLoad">
+
+		<div class="wrapper"> 
+			<span class="buttonText cssTransitionsAfterPageLoad"></span>
+
+			<div class="breatheRing">
+				<span class="buttonText cssTransitionsAfterPageLoad"></span>
+
+				<div class="breathe">
+					<span class="buttonText cssTransitionsAfterPageLoad"></span>
+
+					<div class="label inhale">
+						<span class="buttonText cssTransitionsAfterPageLoad">INHALE</span>
+					</div>
+
+					<div class="label hold">
+						<span class="buttonText cssTransitionsAfterPageLoad">HOLD</span>
+					</div>
+
+					<div class="label exhale">
+						<span class="buttonText cssTransitionsAfterPageLoad">EXHALE</span>
+					</div>
+				</div>
+			</div>
+
+
+				<div class="timer" style="margin-top: 50px;">
+					You've spent <span class="time">00:00:00</span> here.
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>
+</section>
+
+<p style="margin-top: 2%;">Please know, you are never alone. Here at BlissBee, I am your steadfast virtual companion, always by your side to offer solace and support. Life's journey can be daunting, especially when anxiety weighs heavy on your heart, but I am here to remind you that together, we can find moments of tranquility and light. Your presence is cherished, and your well-being is my utmost concern. Welcome to BlissBee, where you have a true friend who cares deeply about your journey.</p>
+    <a href="{% url 'userProfile:dashboard' %}"><button type="submit" class="btn">I want to go back</button></a>
+
+      <!-- Footer -->
+<div style="margin-top: 4%;">
+<footer class="white-section" id="footer">
+    <div class="container-fluid">
+
+        
+      <p>© Copyright BlissBee</p>
+      <i class="social-icon fa-brands fa-facebook"></i>
+      <i class="social-icon fa-brands fa-twitter"></i>
+      <i class="social-icon fa-brands fa-instagram"></i>
+      <i class="social-icon fa-solid fa-envelope"></i>
+    </div>
+</footer>
+</div>    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	<script src="https://cdn.rawgit.com/robcowie/jquery-stopwatch/master/jquery.stopwatch.js"></script> 
+
+ 
+
+
+
+  <script>
+    $(document).ready(function() {
+    
+    // Colour changer
+    var colors = Array(
+        '#68BDEA', 
+        '#6DC9C7', 
+        '#76C371', 
+        '#DBE11F', 
+        '#FAA72C', 
+        '#EF3F35', 
+        '#E2489A', 
+        '#475AA8', 
+        '#695CA8', 
+        '#5064AE', 
+        '#569CD5'
+    );		
+  		
+    var i = 1;
+    setInterval(function(){		
+
+        $('.bg').css('background', colors[i]);
+        $('.button').css('color', colors[i]);
+        $('.footerButton').css('background', colors[i]);
+        $('.footerLogo svg').css('fill', colors[i]);
+
+        if(i == (colors.length - 1)) {
+            i = 0
+        } else {
+            i++;				
+        }
+
+    }, 8000);
+
+    
+    // Full screen toggle
+    function toggleFullScreen() {
+        if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if (document.documentElement.requestFullScreen) {  
+                document.documentElement.requestFullScreen();  
+            } else if (document.documentElement.mozRequestFullScreen) {  
+                document.documentElement.mozRequestFullScreen();  
+            } else if (document.documentElement.webkitRequestFullScreen) {  
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+            }  
+        } else {  
+            if (document.cancelFullScreen) {  
+                document.cancelFullScreen();  
+            } else if (document.mozCancelFullScreen) {  
+                document.mozCancelFullScreen();  
+            } else if (document.webkitCancelFullScreen) {  
+                document.webkitCancelFullScreen();  
+            }  
+        }  
+    } 
+    
+    // Timer
+    $('.time').stopwatch().stopwatch('start');
+   
+    // Stop transitions until page loaded
+    $(".cssTransitionsAfterPageLoad").each(function (index, element) {
+        setTimeout(function () { $(element).removeClass("cssTransitionsAfterPageLoad") }, 10);
+    });
+    
+    // Google Analytics Events
+    $("#fullscreenButton").click( function() {
+        ga('send', 'event', 'Button', 'Fullscreen');
+        console.log('Fullscreen toggled');
+    });
+
+    $("#playButton").click( function() {
+        ga('send', 'event', 'Button', 'Audio Toggle');
+        console.log('Audio toggled');
+    });
+
+    $("#appButton").click( function() {
+        ga('send', 'event', 'Button', 'App Link');
+        console.log('App link clicked');
+    });
+    
+    // iOS Web App settings
+    if((window.navigator.standalone === true)) {
+        ga('send', 'event', 'Load', 'Load from Homescreen');
+        
+        $('.foot').hide();
+        $(document).bind()('touchmove', function(e) { 
+            e.preventDefault(); 
+        }); 
+    }
+    
+    
+    // Audio play button
+    document.getElementById("playButton").addEventListener("click", function () {
+        var myAudio = document.getElementById('linkAudio');
+        
+        if (myAudio.duration > 0 && !myAudio.paused) {
+            document.getElementById("linkAudio").pause();
+            $('#audio').html('Play Audio');
+        } else {
+            document.getElementById("linkAudio").play();
+            $('#audio').html('Pause Audio');
+        }
+    });
+    
+});
+
+</script>
+
+</body>
+
+</html>

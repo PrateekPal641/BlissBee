@@ -1,0 +1,517 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <!-- integarting bootstrap into css by cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/watch copy.css">
+  <link rel="stylesheet" href="{% static 'css/watch copy.css' %}">
+
+
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/b70f3ea85a.js" crossorigin="anonymous"></script>
+  
+
+  <!-- BootStrap Scripts -->
+  <!-- some features of bootsrap require javascript to work -->
+  <!-- check bootstrap's introduction page to find out -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+    <section class="upar text-center" style="height: 120px; margin-top: 20px ;"  ;>
+      <div class="container">
+        <div style="display: flex;"><h1 class="jumbotron-heading" style="margin: auto; color: white;">BlissBee's Smart Analytics</h1><a href="{% url 'userProfile:dashboard' %}" class="btn btn-secondary my-2">Dashboard</a></div>
+      </div>
+    </section>
+
+    <div class="container-fluid">
+      <div class="row">
+        <section class="start-sec">
+          <div class="left-div">
+            <p>Your Daily Step Count</p>
+            <div class="well">
+              <div class="row">
+                <div id="progress" data-dimension="200" data-text="" data-fontsize="36" data-percent="" data-fgcolor="#30B455" data-bgcolor="#eee" data-width="15" data-bordersize="15" data-animationstep="2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="right-div">
+            <p>Your Calories Expenditure</p>
+            <div class="well">
+              <div class="row">
+                <div id="progress1" data-dimension="200" data-text="" data-fontsize="36" data-percent="" data-fgcolor="#30B455" data-bgcolor="#eee" data-width="15" data-bordersize="15" data-animationstep="2"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="start-sec">
+          <div class="left-div">
+            <p>Your Active minutes</p>
+            <div class="well">
+              <div class="row">
+                <div id="progress2" data-dimension="200" data-text="" data-fontsize="36" data-percent="" data-fgcolor="#30B455" data-bgcolor="#eee" data-width="15" data-bordersize="15" data-animationstep="2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="right-div">
+            <p>Your Heart minutes </p>
+            <div class="well">
+              <div class="row">
+                <div id="progress3" data-dimension="200" data-text="" data-fontsize="36" data-percent="" data-fgcolor="#30B455" data-bgcolor="#eee" data-width="15" data-bordersize="15" data-animationstep="2"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="data-area ">
+          <main class="wrapper">
+            <section class="hero">
+              <h2 style="text-align: center;">Unlock Your Personalized Health & Fitness Plans</h2>
+            </section>
+            <section class="breweries" id="breweries">
+              <ul>
+                <li>
+                  <figure>
+                    <img src="https://img.freepik.com/premium-vector/couple-people-park-city-doing-sports_24911-58635.jpg" alt="" class="smart-watch-imgs">
+                    <figcaption><h3>Your <span style="color: yellow;">Personalised Fitness Plan</span> is here</h3></figcaption>
+                  </figure>
+                  <p>
+                    Are you ready to take charge of your well-being and embark on a journey to a healthier, more active lifestyle? Your personalized health recommendations, based on insightful data from your smartwatch, offer the keys to a better you
+                    </p>
+                    <a href="#" id="show-content">Click here to view</a>
+                    <hr>
+                    <ul id="file-content"  style="display: none;"></ul>
+                  
+                </li>
+
+                <li>
+                  <figure>
+                    <img src="https://www.gundersenhealth.org/sites/default/files/styles/card_medium_4_3_600_450/public/eat-nutrition-and-your-mental-health.png.webp?itok=TEyvld9-" alt="" class="smart-watch-imgs">
+                    <figcaption><h3>Your <span style="color: yellow;">Personalised Activity Plan</span> is here</h3></figcaption>
+                  </figure>
+                  <p>
+                    Ready to supercharge your fitness journey with a plan designed exclusively for you? Say hello to your Personalized Fitness Plan and Diet Plan, tailored to help you achieve your wellness goals.
+                    </p>
+                    <a href="#" id="show-content-2">Click here to view</a>
+                    <hr>
+                    <ul id="file-content-2"  style="display: none;"></ul>
+                </li>
+              </ul>
+            </section>
+          </main>
+        </section>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.min.js"></script>
+   
+    <script>
+
+
+const stepCount = '{{fitness_data.steps_count}}';
+const maxStepCount = 10000;
+const calorieExpenditure = '{{fitness_data.calories_expended}}';
+const maxCalorieExpenditure = 2500;
+const activeMinutes = '{{fitness_data.active_minutes}}';
+const maxActiveMinutes = 300;
+const heartMinutes = '{{fitness_data.heart_minutes}}';
+const maxHeartMinutes = 30;
+
+// Calculate percentages and round them to whole numbers
+const stepCountPercentage = Math.round((stepCount / maxStepCount) * 100);
+const calorieExpenditurePercentage = Math.round((calorieExpenditure / maxCalorieExpenditure) * 100);
+const activeMinutesPercentage = Math.round((activeMinutes / maxActiveMinutes) * 100);
+const heartMinutesPercentage = Math.round((heartMinutes / maxHeartMinutes) * 100);
+
+// Set the data-text and data-percent attributes for each progress element
+document.getElementById('progress').setAttribute('data-text', stepCountPercentage + '%');
+document.getElementById('progress').setAttribute('data-percent', stepCountPercentage);
+document.getElementById('progress1').setAttribute('data-text', calorieExpenditurePercentage + '%');
+document.getElementById('progress1').setAttribute('data-percent', calorieExpenditurePercentage);
+document.getElementById('progress2').setAttribute('data-text', activeMinutesPercentage + '%');
+document.getElementById('progress2').setAttribute('data-percent', activeMinutesPercentage);
+document.getElementById('progress3').setAttribute('data-text', heartMinutesPercentage + '%');
+document.getElementById('progress3').setAttribute('data-percent', heartMinutesPercentage);
+
+
+$(function() {
+	$('#progress').circliful();
+  $('#progress1').circliful();
+  $('#progress2').circliful();
+  $('#progress3').circliful();
+});
+
+
+function loadTextFile1() {
+  const mediaUrl = "{% get_media_prefix %}";
+  const fileName = "plan1.txt";  // The name of the file you want to read
+  const fileUrl = mediaUrl + fileName;
+  console.log(fileUrl)
+        fetch(fileUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Split the data into lines and create bullet points
+                const lines = data.split('\n');
+            const nonEmptyLines = lines.filter(line => line.trim() !== ''); // Filter out empty lines
+            const listItems = nonEmptyLines.map(line => `<li>${line}</li>`);
+            // Update the file-content element with a list
+            document.getElementById('file-content').innerHTML = `<ul>${listItems.join('')}</ul>`;
+     
+            })
+            .catch(error => {
+                console.error('Error reading file:', error);
+            });
+    }
+
+    
+
+    function loadTextFile2() {
+  const mediaUrl = "{% get_media_prefix %}";
+  const fileName = "plan2.txt";  // The name of the file you want to read
+  const fileUrl = mediaUrl + fileName;
+  console.log(fileUrl)
+    fetch(fileUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Split the data into lines and create bullet points
+            const lines = data.split('\n');
+            const nonEmptyLines = lines.filter(line => line.trim() !== ''); // Filter out empty lines
+            const listItems = nonEmptyLines.map(line => `<li>${line}</li>`);
+            document.getElementById('file-content-2').innerHTML = `<ul>${listItems.join('')}</ul>`;
+        })
+        .catch(error => {
+            console.error('Error reading file:', error);
+        });
+}
+loadTextFile1();
+loadTextFile2();
+
+
+        var showContentLink = document.getElementById("show-content");
+        var fileContent = document.getElementById("file-content");
+
+        // Add a click event listener to the link
+        showContentLink.addEventListener("click", function (event) {
+            // Prevent the default link behavior (e.g., navigating to another page)
+            event.preventDefault();
+
+            // Toggle the display style of the content
+            if (fileContent.style.display === "none") {
+                fileContent.style.display = "block";
+            } else {
+                fileContent.style.display = "none";
+            }
+        });
+
+
+       
+
+var showContentLink2 = document.getElementById("show-content-2");
+var fileContent2 = document.getElementById("file-content-2");
+
+// Add a click event listener to the link
+showContentLink2.addEventListener("click", function (event) {
+    // Prevent the default link behavior (e.g., navigating to another page)
+    event.preventDefault();
+
+    // Toggle the display style of the content
+    if (fileContent2.style.display === "none") {
+        fileContent2.style.display = "block";
+    } else {
+        fileContent2.style.display = "none";
+    }
+});        
+
+(function ($) {
+
+    $.fn.circliful = function (options, callback) {
+
+        var settings = $.extend({
+            // These are the defaults.
+            startdegree: 0,
+            fgcolor: "#556b2f",
+            bgcolor: "#eee",
+            fill: false,
+            width: 15,
+            dimension: 200,
+            fontsize: 15,
+            percent: 50,
+            animationstep: 1.0,
+            iconsize: '20px',
+            iconcolor: '#999',
+            border: 'default',
+            complete: null,
+            bordersize: 10
+        }, options);
+
+        return this.each(function () {
+
+            var customSettings = ["fgcolor", "bgcolor", "fill", "width", "dimension", "fontsize", "animationstep", "endPercent", "icon", "iconcolor", "iconsize", "border", "startdegree", "bordersize"];
+
+            var customSettingsObj = {};
+            var icon = '';
+            var endPercent = 0;
+            var obj = $(this);
+            var fill = false;
+            var text, info;
+
+            obj.addClass('circliful');
+
+            checkDataAttributes(obj);
+
+            if (obj.data('text') != undefined) {
+                text = obj.data('text');
+
+                if (obj.data('icon') != undefined) {
+                    icon = $('<i></i>')
+                        .addClass('fa ' + $(this).data('icon'))
+                        .css({
+                            'color': customSettingsObj.iconcolor,
+                            'font-size': customSettingsObj.iconsize
+                        });
+                }
+
+                if (obj.data('type') != undefined) {
+                    type = $(this).data('type');
+
+                    if (type == 'half') {
+                        addCircleText(obj, 'circle-text-half', (customSettingsObj.dimension / 1.45));
+                    } else {
+                        addCircleText(obj, 'circle-text', customSettingsObj.dimension);
+                    }
+                } else {
+                    addCircleText(obj, 'circle-text', customSettingsObj.dimension);
+                }
+            }
+
+            if ($(this).data("total") != undefined && $(this).data("part") != undefined) {
+                var total = $(this).data("total") / 100;
+
+                percent = (($(this).data("part") / total) / 100).toFixed(3);
+                endPercent = ($(this).data("part") / total).toFixed(3)
+            } else {
+                if ($(this).data("percent") != undefined) {
+                    percent = $(this).data("percent") / 100;
+                    endPercent = $(this).data("percent")
+                } else {
+                    percent = settings.percent / 100
+                }
+            }
+
+            if ($(this).data('info') != undefined) {
+                info = $(this).data('info');
+
+                if ($(this).data('type') != undefined) {
+                    type = $(this).data('type');
+
+                    if (type == 'half') {
+                        addInfoText(obj, 0.9);
+                    } else {
+                        addInfoText(obj, 1.25);
+                    }
+                } else {
+                    addInfoText(obj, 1.25);
+                }
+            }
+
+            $(this).width(customSettingsObj.dimension + 'px');
+
+            var canvas = $('<canvas></canvas>').attr({
+                width: customSettingsObj.dimension,
+                height: customSettingsObj.dimension
+            }).appendTo($(this)).get(0);
+
+            var context = canvas.getContext('2d');
+            var container = $(canvas).parent();
+            var x = canvas.width / 2;
+            var y = canvas.height / 2;
+            var degrees = customSettingsObj.percent * 360.0;
+            var radians = degrees * (Math.PI / 180);
+            var radius = canvas.width / 2.5;
+            var startAngle = 2.3 * Math.PI;
+            var endAngle = 0;
+            var counterClockwise = false;
+            var curPerc = customSettingsObj.animationstep === 0.0 ? endPercent : 0.0;
+            var curStep = Math.max(customSettingsObj.animationstep, 0.0);
+            var circ = Math.PI * 2;
+            var quart = Math.PI / 2;
+            var type = '';
+            var fireCallback = true;
+            var additionalAngelPI = (customSettingsObj.startdegree / 180) * Math.PI;
+
+            if ($(this).data('type') != undefined) {
+                type = $(this).data('type');
+
+                if (type == 'half') {
+                    startAngle = 2.0 * Math.PI;
+                    endAngle = 3.13;
+                    circ = Math.PI;
+                    quart = Math.PI / 0.996;
+                }
+            }
+          
+            /**
+             * adds text to circle
+             *
+             * @param obj
+             * @param cssClass
+             * @param lineHeight
+             */
+            function addCircleText(obj, cssClass, lineHeight) {
+                $("<span></span>")
+                    .appendTo(obj)
+                    .addClass(cssClass)
+                    .text(text)
+                    .prepend(icon)
+                    .css({
+                        'line-height': lineHeight + 'px',
+                        'font-size': customSettingsObj.fontsize + 'px'
+                    });
+            }
+
+            /**
+             * adds info text to circle
+             *
+             * @param obj
+             * @param factor
+             */
+            function addInfoText(obj, factor) {
+                $('<span></span>')
+                    .appendTo(obj)
+                    .addClass('circle-info-half')
+                    .css(
+                        'line-height', (customSettingsObj.dimension * factor) + 'px'
+                    )
+                    .text(info);
+            }
+
+            /**
+             * checks which data attributes are defined
+             * @param obj
+             */
+            function checkDataAttributes(obj) {
+                $.each(customSettings, function (index, attribute) {
+                    if (obj.data(attribute) != undefined) {
+                        customSettingsObj[attribute] = obj.data(attribute);
+                    } else {
+                        customSettingsObj[attribute] = $(settings).attr(attribute);
+                    }
+
+                    if (attribute == 'fill' && obj.data('fill') != undefined) {
+                        fill = true;
+                    }
+                });
+            }
+
+            /**
+             * animate foreground circle
+             * @param current
+             */
+            function animate(current) {
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.beginPath();
+                context.arc(x, y, radius, endAngle, startAngle, false);
+
+                context.lineWidth = customSettingsObj.bordersize + 1;
+
+                context.strokeStyle = customSettingsObj.bgcolor;
+                context.stroke();
+
+                if (fill) {
+                    context.fillStyle = customSettingsObj.fill;
+                    context.fill();
+                }
+
+                context.beginPath();
+                context.arc(x, y, radius, -(quart) + additionalAngelPI, ((circ) * current) - quart + additionalAngelPI, false);
+
+                if (customSettingsObj.border == 'outline') {
+                    context.lineWidth = customSettingsObj.width + 13;
+                } else if (customSettingsObj.border == 'inline') {
+                    context.lineWidth = customSettingsObj.width - 13;
+                }
+
+                context.strokeStyle = customSettingsObj.fgcolor;
+                context.stroke();
+
+                if (curPerc < endPercent) {
+                    curPerc += curStep;
+                    requestAnimationFrame(function () {
+                        animate(Math.min(curPerc, endPercent) / 100);
+                    }, obj);
+                }
+
+                if (curPerc == endPercent && fireCallback && typeof(options) != "undefined") {
+                    if ($.isFunction(options.complete)) {
+                        options.complete();
+
+                        fireCallback = false;
+                    }
+                }
+            }
+
+            animate(curPerc / 100);
+
+        });
+    };
+}(jQuery));
+
+
+
+
+    </script>
+  </body>
+</html>
